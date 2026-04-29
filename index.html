@@ -17,10 +17,7 @@
       overflow-x:hidden;
       color:#2b1055;
     }
-    @keyframes gradientShift{
-      0%,100%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-    }
+    @keyframes gradientShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
     .confetti{position:fixed;top:-20px;width:10px;height:14px;z-index:9999;pointer-events:none;animation:fall linear infinite}
     @keyframes fall{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:.7}}
     .balloon{position:absolute;width:60px;height:75px;border-radius:50%;box-shadow:inset -7px -10px 0 rgba(0,0,0,.07);animation:floatBalloon linear infinite}
@@ -31,8 +28,7 @@
       background:linear-gradient(90deg,#ff006e,#fb5607,#ffbe0b,#8338ec,#3a86ff);
       background-size:300% 300%;
       -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-      background-clip:text;
-      animation:gradientShift 6s ease infinite;
+      background-clip:text;animation:gradientShift 6s ease infinite;
     }
     .glow-card{
       background:rgba(255,255,255,.25);
@@ -41,8 +37,8 @@
       box-shadow:0 25px 60px rgba(131,56,236,.25);
     }
 
-    /* Cake — flush, no gaps */
-    .cake-gif-wrap{position:relative;width:100%;height:420px;overflow:hidden;border-radius:20px}
+    /* Cake */
+    .cake-gif-wrap{position:relative;width:100%;height:400px;overflow:hidden;border-radius:20px}
     .cake-gif-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
     .cake-gif-wrap img:hover{transform:scale(1.03)}
     .cake-glow-ring{position:absolute;inset:0;border-radius:20px;background:radial-gradient(ellipse at center,rgba(255,0,110,.12),transparent 70%);animation:cakeGlow 3s ease-in-out infinite;pointer-events:none}
@@ -50,13 +46,13 @@
     .cake-sparkle{position:absolute;width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 8px 2px rgba(255,255,255,.8),0 0 20px rgba(255,182,193,.5);animation:cakeSparkle 2.5s ease-in-out infinite;pointer-events:none;z-index:2}
     @keyframes cakeSparkle{0%,100%{opacity:0;transform:scale(0)}50%{opacity:1;transform:scale(1)}}
 
-    /* Gallery — flush, no gaps, JS-driven rotation */
-    .gallery-container{position:relative;width:100%;height:580px;perspective:1200px;overflow:hidden}
+    /* Gallery — zero gaps */
+    .gallery-container{position:relative;width:100%;height:520px;perspective:1000px;overflow:hidden}
     .gallery-carousel{position:absolute;width:100%;height:100%;transform-style:preserve-3d}
     .gallery-item{
-      position:absolute;width:300px;height:380px;
-      left:50%;top:50%;margin-left:-150px;margin-top:-190px;
-      border-radius:20px;overflow:hidden;
+      position:absolute;width:280px;height:360px;
+      left:50%;top:50%;margin-left:-140px;margin-top:-180px;
+      border-radius:16px;overflow:hidden;
       box-shadow:0 15px 40px rgba(0,0,0,.25);
       backface-visibility:hidden;
     }
@@ -66,7 +62,7 @@
       position:absolute;inset:0;
       background:linear-gradient(to top,rgba(255,0,110,.85),transparent 60%);
       opacity:0;transition:opacity .4s ease;
-      display:flex;align-items:flex-end;padding:16px;
+      display:flex;align-items:flex-end;padding:14px;
       color:#fff;font-weight:600;cursor:pointer;
     }
     .gallery-item:hover .overlay{opacity:1}
@@ -77,67 +73,33 @@
     .wish-button:hover::before{width:300px;height:300px}
 
     /* Wish Popup */
-    .wish-popup{
-      position:fixed;top:50%;left:50%;
-      transform:translate(-50%,-50%) scale(.8);
-      width:90%;max-width:500px;padding:40px;
-      background:rgba(255,255,255,.95);backdrop-filter:blur(20px);
-      border-radius:30px;box-shadow:0 30px 80px rgba(131,56,236,.3);
-      z-index:10000;opacity:0;visibility:hidden;
-      transition:all .5s cubic-bezier(.34,1.56,.64,1);text-align:center;
-    }
+    .wish-popup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.8);width:90%;max-width:500px;padding:32px 24px;background:rgba(255,255,255,.95);backdrop-filter:blur(20px);border-radius:30px;box-shadow:0 30px 80px rgba(131,56,236,.3);z-index:10000;opacity:0;visibility:hidden;transition:all .5s cubic-bezier(.34,1.56,.64,1);text-align:center}
     .wish-popup.active{opacity:1;visibility:visible;transform:translate(-50%,-50%) scale(1)}
     .wish-popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(5px);z-index:9999;opacity:0;visibility:hidden;transition:all .3s ease}
     .wish-popup-overlay.active{opacity:1;visibility:visible}
 
     /* Music Banner */
-    .music-banner{
-      position:fixed;top:20px;left:50%;
-      transform:translateX(-50%) translateY(-120px);
-      background:rgba(255,255,255,.95);backdrop-filter:blur(15px);
-      padding:14px 28px;border-radius:50px;
-      box-shadow:0 10px 40px rgba(131,56,236,.3);
-      z-index:10001;display:flex;align-items:center;gap:12px;
-      cursor:pointer;transition:transform .6s cubic-bezier(.34,1.56,.64,1);
-      border:1px solid rgba(255,255,255,.5);white-space:nowrap;
-    }
+    .music-banner{position:fixed;top:16px;left:50%;transform:translateX(-50%) translateY(-120px);background:rgba(255,255,255,.95);backdrop-filter:blur(15px);padding:12px 22px;border-radius:50px;box-shadow:0 10px 40px rgba(131,56,236,.3);z-index:10001;display:flex;align-items:center;gap:10px;cursor:pointer;transition:transform .6s cubic-bezier(.34,1.56,.64,1);border:1px solid rgba(255,255,255,.5);white-space:nowrap}
     .music-banner.show{transform:translateX(-50%) translateY(0)}
     .music-banner:hover{transform:translateX(-50%) translateY(0) scale(1.05)}
-    .music-banner .play-icon{
-      width:36px;height:36px;border-radius:50%;
-      background:linear-gradient(135deg,#ff006e,#8338ec);
-      display:flex;align-items:center;justify-content:center;
-      color:#fff;font-size:14px;flex-shrink:0;
-      animation:pulseBanner 2s infinite;
-    }
+    .music-banner .play-icon{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#ff006e,#8338ec);display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;flex-shrink:0;animation:pulseBanner 2s infinite}
     @keyframes pulseBanner{0%,100%{box-shadow:0 0 0 0 rgba(255,0,110,.4)}50%{box-shadow:0 0 0 10px rgba(255,0,110,0)}}
 
     /* Thumbnails */
-    .thumb{
-      aspect-ratio:1/1;border-radius:12px;overflow:hidden;
-      cursor:pointer;transition:all .3s ease;
-      border:2px solid transparent;box-shadow:0 4px 12px rgba(0,0,0,.15);
-    }
-    .thumb:hover{transform:translateY(-4px) scale(1.05);border-color:#ff006e}
+    .thumb{aspect-ratio:1/1;border-radius:10px;overflow:hidden;cursor:pointer;transition:all .3s ease;border:2px solid transparent;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+    .thumb:hover{transform:translateY(-3px) scale(1.05);border-color:#ff006e}
     .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
     .thumb:hover img{transform:scale(1.15)}
 
     /* Modal */
-    .modal{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:9998;display:none;align-items:center;justify-content:center;padding:10px;backdrop-filter:blur(10px)}
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:9998;display:none;align-items:center;justify-content:center;padding:8px;backdrop-filter:blur(10px)}
     .modal.active{display:flex;animation:fadeIn .3s ease}
     @keyframes fadeIn{from{opacity:0}to{opacity:1}}
     .modal img{max-width:95vw;max-height:92vh;border-radius:16px;box-shadow:0 30px 80px rgba(255,0,110,.5);animation:zoomIn .4s ease;object-fit:contain}
     @keyframes zoomIn{from{transform:scale(.5);opacity:0}to{transform:scale(1);opacity:1}}
 
     /* Music button */
-    .music-btn{
-      position:fixed;bottom:25px;right:25px;width:60px;height:60px;
-      border-radius:50%;background:linear-gradient(135deg,#ff006e,#8338ec);
-      color:#fff;display:flex;align-items:center;justify-content:center;
-      cursor:pointer;box-shadow:0 10px 30px rgba(255,0,110,.5);
-      z-index:1000;font-size:24px;transition:transform .3s ease;
-      animation:pulse 2s infinite;
-    }
+    .music-btn{position:fixed;bottom:20px;right:20px;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#ff006e,#8338ec);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 10px 30px rgba(255,0,110,.5);z-index:1000;font-size:20px;transition:transform .3s ease;animation:pulse 2s infinite}
     .music-btn:hover{transform:scale(1.1)}
     @keyframes pulse{0%,100%{box-shadow:0 10px 30px rgba(255,0,110,.5)}50%{box-shadow:0 10px 50px rgba(255,0,110,.9)}}
 
@@ -148,122 +110,149 @@
     .sparkle{position:absolute;width:6px;height:6px;background:#fff;border-radius:50%;box-shadow:0 0 10px #fff,0 0 20px #fff;animation:sparkle 2s linear infinite}
     @keyframes sparkle{0%,100%{opacity:0;transform:scale(0)}50%{opacity:1;transform:scale(1)}}
 
-    /* Footer sliding brand */
-    @keyframes slideColor{
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
-    }
+    /* Footer brand */
+    @keyframes slideColor{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
     .footer-brand{
       background:linear-gradient(90deg,#ff006e,#fb5607,#ffbe0b,#8338ec,#3a86ff,#ff006e);
       background-size:200% auto;
       -webkit-background-clip:text;-webkit-text-fill-color:transparent;
       background-clip:text;
       animation:slideColor 3s linear infinite;
-      font-family:'Poppins',sans-serif;
-      font-weight:800;
-      letter-spacing:.2em;
-      text-transform:uppercase;
+      font-family:'Poppins',sans-serif;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
     }
 
-    @media(max-width:768px){
-      .title-fancy{font-size:3rem!important}
-      .gallery-container{height:350px}
-      .gallery-item{width:200px;height:260px;margin-left:-100px;margin-top:-130px}
+    /* ===== RESPONSIVE ===== */
+    @media(max-width:480px){
+      .hero-sub{font-size:1.1rem!important}
+      .hero-title{font-size:2.8rem!important}
+      .hero-name{font-size:2rem!important}
+      .hero-text{font-size:.95rem!important;padding:0 8px}
+      .hero-btn{padding:12px 28px;font-size:.95rem}
+      .section-title{font-size:2.2rem!important}
+      .section-sub{font-size:1.3rem!important}
+      .cake-title{font-size:2rem!important}
+      .cake-gif-wrap{height:240px;border-radius:14px}
+      .cake-caption{font-size:1rem!important}
+      .gallery-container{height:280px;perspective:700px}
+      .gallery-item{width:160px;height:210px;margin-left:-80px;margin-top:-105px;border-radius:10px}
+      .thumb-grid{grid-template-columns:repeat(4,1fr)!important;gap:4px!important}
+      .wish-card{padding:16px 12px}
+      .wish-icon{font-size:2.5rem}
+      .wish-title{font-size:1.1rem}
+      .wish-text{font-size:.85rem}
+      .final-icon{font-size:3.5rem}
+      .final-title{font-size:2rem!important}
+      .final-text{font-size:.95rem!important;padding:0 4px}
+      .final-sign{font-size:1.6rem!important}
+      .footer-love{font-size:1.2rem!important}
+      .footer-brand{font-size:.9rem;letter-spacing:.1em}
+      .music-btn{width:46px;height:46px;font-size:18px;bottom:14px;right:14px}
+      .music-banner{padding:10px 16px}
+      .music-banner span{font-size:.75rem}
+      .popup-title{font-size:1.6rem}
+      .popup-text{font-size:.9rem}
+      .popup-btn{padding:10px 24px;font-size:.9rem}
+    }
+    @media(min-width:481px) and (max-width:768px){
+      .hero-title{font-size:4rem!important}
+      .hero-name{font-size:2.8rem!important}
+      .cake-title{font-size:2.8rem!important}
       .cake-gif-wrap{height:300px}
+      .gallery-container{height:360px;perspective:800px}
+      .gallery-item{width:210px;height:270px;margin-left:-105px;margin-top:-135px;border-radius:12px}
+      .section-title{font-size:3rem!important}
     }
   </style>
  </head>
  <body>
   <div id="balloons"></div>
 
-  <!-- Music Banner (fallback only) -->
   <div class="music-banner" id="musicBanner">
     <div class="play-icon">▶</div>
-    <span style="font-size:.85rem;font-weight:600;color:#2b1055;">Tap to play birthday song</span>
+    <span style="font-size:.8rem;font-weight:600;color:#2b1055;">Tap to play birthday song</span>
   </div>
 
   <!-- Hero -->
-  <section class="relative min-h-screen flex flex-col items-center justify-center px-6 py-12 text-center overflow-hidden">
+  <section class="relative min-h-screen flex flex-col items-center justify-center px-4 py-10 text-center overflow-hidden">
     <div class="absolute inset-0 pointer-events-none" id="sparkleField"></div>
-    <p class="text-2xl md:text-3xl mb-4 font-light tracking-wider text-white drop-shadow-lg" style="font-family:'Dancing Script',cursive;">
+    <p class="hero-sub text-xl md:text-3xl mb-3 font-light tracking-wider text-white drop-shadow-lg" style="font-family:'Dancing Script',cursive;">
       ✨ A very special day for a very special girl ✨
     </p>
-    <h1 class="title-fancy text-6xl md:text-8xl lg:text-9xl font-bold mb-6 leading-tight">Happy Birthday!</h1>
-    <h2 class="text-4xl md:text-6xl mb-8 text-white drop-shadow-xl" style="font-family:'Dancing Script',cursive;">
+    <h1 class="hero-title title-fancy text-5xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight">Happy Birthday!</h1>
+    <h2 class="hero-name text-3xl md:text-5xl lg:text-6xl mb-6 text-white drop-shadow-xl" style="font-family:'Dancing Script',cursive;">
       Princess CynDizza 👑
     </h2>
-    <p class="max-w-2xl text-lg md:text-xl text-white/95 mb-10 leading-relaxed drop-shadow">
+    <p class="hero-text max-w-2xl text-base md:text-lg text-white/95 mb-8 leading-relaxed drop-shadow px-2">
       Today the world celebrates the most amazing, kind, beautiful soul. Every moment with you is a gift, and today is just one more reason to celebrate YOU.
     </p>
-    <a href="#cake" class="wish-button inline-block px-10 py-4 rounded-full bg-white text-pink-600 font-bold text-lg shadow-2xl hover:scale-110 transition-all duration-300" id="makeWishBtn">
+    <a href="#cake" class="hero-btn wish-button inline-block px-8 py-3 rounded-full bg-white text-pink-600 font-bold text-base shadow-2xl hover:scale-110 transition-all duration-300" id="makeWishBtn">
       🎂 Make a Wish
     </a>
   </section>
 
   <!-- Cake -->
-  <section id="cake" class="py-16 px-4">
+  <section id="cake" class="py-10 px-3 md:py-16 md:px-4">
     <div class="max-w-xl mx-auto text-center">
-      <h2 class="title-fancy text-5xl md:text-6xl mb-3 whitespace-nowrap">Your Birthday Cake</h2>
-      <p class="text-white text-lg md:text-xl mb-8 drop-shadow" style="font-family:'Dancing Script',cursive;font-size:1.8rem;">
+      <h2 class="cake-title title-fancy text-4xl md:text-6xl lg:text-7xl mb-2 whitespace-nowrap">Your Birthday Cake</h2>
+      <p class="section-sub cake-caption text-white text-base md:text-lg mb-6 drop-shadow" style="font-family:'Dancing Script',cursive;font-size:1.5rem;">
         Close your eyes, and make a wish! 🌟
       </p>
-      <div class="glow-card rounded-3xl overflow-hidden">
+      <div class="glow-card rounded-2xl md:rounded-3xl overflow-hidden">
         <div class="cake-gif-wrap" id="cakeGifWrap">
           <div class="cake-glow-ring"></div>
           <img src="https://yt3.ggpht.com/jVdBg4vKK0shO1BvLlv0EhvgAY3ffpstCbV7cS5V6ZGwQppVYpB7GuSq3brUfyQ_2PPZQqR9jK4B=s740-rw-nd-v1" alt="Birthday Cake">
         </div>
-        <p class="text-pink-700 py-4 font-semibold" style="font-family:'Dancing Script',cursive;font-size:1.2rem;">
+        <p class="text-pink-700 py-3 font-semibold" style="font-family:'Dancing Script',cursive;font-size:1.1rem;">
           🕯️ Make a wish and blow out the candles! 🕯️
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Gallery — no gaps -->
-  <section class="py-16 px-4">
+  <!-- Gallery — zero gaps -->
+  <section class="py-10 px-0 md:py-16 md:px-4">
     <div class="max-w-6xl mx-auto">
-      <h2 class="title-fancy text-5xl md:text-7xl mb-3 text-center">Beautiful Memories</h2>
-      <p class="text-white text-center text-lg md:text-xl mb-8 drop-shadow" style="font-family:'Dancing Script',cursive;font-size:1.8rem;">
+      <h2 class="section-title title-fancy text-4xl md:text-6xl lg:text-7xl mb-2 text-center px-3">Beautiful Memories</h2>
+      <p class="section-sub text-white text-center text-base md:text-lg mb-6 drop-shadow px-3" style="font-family:'Dancing Script',cursive;font-size:1.5rem;">
         Every picture tells our story 💕
       </p>
-      <div class="glow-card rounded-3xl overflow-hidden mb-6">
+      <div class="glow-card rounded-none md:rounded-3xl overflow-hidden mb-4 md:mb-6">
         <div class="gallery-container">
           <div class="gallery-carousel" id="galleryCarousel"></div>
         </div>
       </div>
-      <div class="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-2" id="thumbGrid"></div>
+      <div class="thumb-grid grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-1.5 px-1 md:px-0 md:gap-2" id="thumbGrid"></div>
     </div>
   </section>
 
   <!-- Wishes -->
-  <section class="py-16 px-4">
+  <section class="py-10 px-3 md:py-16 md:px-4">
     <div class="max-w-6xl mx-auto">
-      <h2 class="title-fancy text-5xl md:text-7xl mb-10 text-center">My Wishes For You</h2>
-      <div class="grid md:grid-cols-3 gap-6" id="wishesGrid"></div>
+      <h2 class="section-title title-fancy text-4xl md:text-6xl lg:text-7xl mb-8 text-center">My Wishes For You</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6" id="wishesGrid"></div>
     </div>
   </section>
 
   <!-- Final -->
-  <section class="py-16 px-4 text-center">
-    <div class="max-w-3xl mx-auto glow-card rounded-3xl p-10 md:p-16">
-      <div class="text-7xl mb-6">💖</div>
-      <h2 class="title-fancy text-4xl md:text-6xl mb-6">Forever & Always</h2>
-      <p class="text-lg md:text-xl text-purple-900 leading-relaxed mb-6">
+  <section class="py-10 px-3 md:py-16 md:px-4 text-center">
+    <div class="max-w-3xl mx-auto glow-card rounded-2xl md:rounded-3xl p-6 md:p-12 lg:p-16">
+      <div class="final-icon text-5xl md:text-7xl mb-4">💖</div>
+      <h2 class="final-title title-fancy text-3xl md:text-5xl lg:text-6xl mb-4">Forever & Always</h2>
+      <p class="final-text text-base md:text-lg text-purple-900 leading-relaxed mb-4 px-1">
         Having a friend like you is one of life's greatest blessings. Your kindness, your laughter, and the way you light up every room you walk into — that's what makes you truly special. I'm so lucky to call you my friend, and I hope this year brings you everything your beautiful heart deserves.
       </p>
-      <p class="text-2xl text-pink-700 font-bold" style="font-family:'Dancing Script',cursive;font-size:2.5rem;">
+      <p class="final-sign text-xl md:text-2xl text-pink-700 font-bold" style="font-family:'Dancing Script',cursive;font-size:2rem;">
         Happy Birthday, CynDizza! 🎉
       </p>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-10 text-center">
-    <p class="text-white/90 drop-shadow mb-3" style="font-family:'Dancing Script',cursive;font-size:1.5rem;">
+  <footer class="py-8 text-center px-3">
+    <p class="footer-love text-white/90 drop-shadow mb-2" style="font-family:'Dancing Script',cursive;font-size:1.3rem;">
       Made with love just for you 💕
     </p>
-    <p class="footer-brand text-xl md:text-2xl">CLETUS CARES</p>
+    <p class="footer-brand text-lg md:text-2xl">CLETUS CARES</p>
   </footer>
 
   <!-- Modal -->
@@ -274,27 +263,24 @@
   <!-- Wish Popup -->
   <div class="wish-popup-overlay" id="wishPopupOverlay"></div>
   <div class="wish-popup" id="wishPopup">
-    <div class="text-6xl mb-4">✨</div>
-    <h3 class="text-3xl font-bold mb-4 text-pink-600" style="font-family:'Dancing Script',cursive;">Your Wish Has Been Sent to the Stars!</h3>
-    <p class="text-purple-900 mb-6">May all your dreams come true on this special day. Close your eyes and believe in the magic!</p>
-    <button class="px-8 py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full font-bold shadow-lg hover:scale-105 transition-transform" id="closeWishPopup">
+    <div class="text-5xl md:text-6xl mb-3">✨</div>
+    <h3 class="popup-title text-2xl md:text-3xl font-bold mb-3 text-pink-600" style="font-family:'Dancing Script',cursive;">Your Wish Has Been Sent to the Stars!</h3>
+    <p class="popup-text text-purple-900 mb-5">May all your dreams come true on this special day. Close your eyes and believe in the magic!</p>
+    <button class="popup-btn px-7 py-2.5 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full font-bold shadow-lg hover:scale-105 transition-transform" id="closeWishPopup">
       Thank You ❤️
     </button>
   </div>
 
-  <!-- Music Button -->
   <div class="music-btn" id="musicBtn" title="Toggle Music">
     <span id="musicIcon">🎵</span>
   </div>
 
-  <!-- Happy Birthday by Saavane -->
   <audio id="bgMusic" loop preload="auto">
     <source src="https://raw.githubusercontent.com/DeQuintessentialDev/audio/main/saavane-happy-birthday-254480.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-    // ===== 12 PHOTOS =====
-    const photos = [
+    const photos=[
       {src:'https://yt3.ggpht.com/O2aK7P741fLXKgbNp22-aWm1Vc562VDhahHJ08hl3JtWbg3kfpmqQ4OPITw6iCsk9nzafS69HMkK=s1024-c-fcrop64=1,00002000ffffdfff-rw-nd-v1',caption:'Pure Joy ✨'},
       {src:'https://yt3.ggpht.com/AWEzTAPBNCSZ9c668jbfD0NZ3WDWle4hD5AgemMigFVRf9zRp1IJmCnRgYMFm1vSlYvUp9Rg0K-1XQ=s1024-c-fcrop64=1,00002000ffffdfff-rw-nd-v1',caption:'Birthday Vibes 🎈'},
       {src:'https://yt3.ggpht.com/2n-WXGn4ajPXb6f7Q0dTclb4Zj9GAwvUtFCMK7VyUDFv5wAXFch23L_6l81SARqn_Y5dbL61j7ax6w=s1024-c-fcrop64=1,00002000ffffdfff-rw-nd-v1',caption:'Forever Beautiful 💕'},
@@ -309,90 +295,75 @@
       {src:'https://yt3.ggpht.com/Q9xqsvaWs31tR15_JfswZEWIobX68g_gIVQ3ZxLfi0NFyHHWtfIBMOAxQqZeBwRsZ4P7U7yQW2jLXQ=s1024-c-fcrop64=1,00002000ffffdfff-rw-nd-v1',caption:'My Person 💗'}
     ];
 
-    // ===== GALLERY — JS-driven rotation for perfect thumbnail sync =====
-    const carousel = document.getElementById('galleryCarousel');
-    const angleStep = 360 / photos.length;
-    const translateZ = 660;
+    // ===== GALLERY — JS rotation for perfect sync =====
+    const carousel=document.getElementById('galleryCarousel');
+    const angleStep=360/photos.length;
+    let currentAngle=0,targetAngle=null,autoSpeed=360/(70*60);
 
-    photos.forEach((p, i) => {
-      const item = document.createElement('div');
-      item.className = 'gallery-item';
-      item.style.transform = `rotateY(${i * angleStep}deg) translateZ(${translateZ}px)`;
-      item.innerHTML = `
+    photos.forEach((p,i)=>{
+      const item=document.createElement('div');
+      item.className='gallery-item';
+      item.style.transform=`rotateY(${i*angleStep}deg) translateZ(${window.innerWidth<500?280:window.innerWidth<769?400:600}px)`;
+      item.innerHTML=`
         <img src="${p.src}" alt="Memory ${i+1}" loading="lazy">
         <div class="overlay" onclick="openModal('${p.src}')">
           <div>
-            <div class="text-xl mb-1" style="font-family:'Dancing Script',cursive;">${p.caption}</div>
-            <div class="text-xs opacity-80">Click to view full size</div>
+            <div class="text-lg mb-1" style="font-family:'Dancing Script',cursive;">${p.caption}</div>
+            <div class="text-xs opacity-80">Click to view</div>
           </div>
-        </div>
-      `;
+        </div>`;
       carousel.appendChild(item);
     });
 
+    // Recalculate translateZ on resize
+    function updateGalleryZ(){
+      const z=window.innerWidth<500?280:window.innerWidth<769?400:600;
+      photos.forEach((_,i)=>{
+        const item=carousel.children[i];
+        if(item) item.style.transform=`rotateY(${i*angleStep}deg) translateZ(${z}px)`;
+      });
+    }
+    window.addEventListener('resize',updateGalleryZ);
+
     // Thumbnails
-    const thumbGrid = document.getElementById('thumbGrid');
-    photos.forEach((p, i) => {
-      const t = document.createElement('div');
-      t.className = 'thumb';
-      t.onclick = () => focusOnSlide(i);
-      t.innerHTML = `<img src="${p.src}" alt="thumb ${i+1}" loading="lazy">`;
+    const thumbGrid=document.getElementById('thumbGrid');
+    photos.forEach((p,i)=>{
+      const t=document.createElement('div');
+      t.className='thumb';
+      t.onclick=()=>focusOnSlide(i);
+      t.innerHTML=`<img src="${p.src}" alt="thumb ${i+1}" loading="lazy">`;
       thumbGrid.appendChild(t);
     });
 
-    // JS rotation — full control, no CSS animation
-    let currentAngle = 0;
-    let targetAngle = null;
-    let autoSpeed = 360 / (70 * 60); // 70s per revolution at ~60fps
-    let resumeTimer = null;
-
-    function animateCarousel() {
-      if (targetAngle !== null) {
-        // Smooth ease toward target
-        let diff = targetAngle - currentAngle;
-        // Normalize diff to -180..180 for shortest path
-        while (diff > 180) diff -= 360;
-        while (diff < -180) diff += 360;
-        if (Math.abs(diff) < 0.3) {
-          currentAngle = targetAngle;
-          targetAngle = null;
-          // Resume auto-rotation after 3s pause
-          if (resumeTimer) clearTimeout(resumeTimer);
-          resumeTimer = setTimeout(() => {}, 3000);
-        } else {
-          currentAngle += diff * 0.07;
-        }
-      } else {
-        currentAngle += autoSpeed;
-      }
-      carousel.style.transform = `rotateY(${currentAngle}deg)`;
+    function animateCarousel(){
+      if(targetAngle!==null){
+        let diff=targetAngle-currentAngle;
+        while(diff>180)diff-=360;
+        while(diff<-180)diff+=360;
+        if(Math.abs(diff)<0.3){currentAngle=targetAngle;targetAngle=null;}
+        else{currentAngle+=diff*0.07;}
+      }else{currentAngle+=autoSpeed;}
+      carousel.style.transform=`rotateY(${currentAngle}deg)`;
       requestAnimationFrame(animateCarousel);
     }
     animateCarousel();
 
-    // Click thumbnail → smoothly rotate to that exact photo facing front
-    function focusOnSlide(index) {
-      // Photo i sits at rotateY(i * angleStep).
-      // To face the viewer (0°), carousel must be at -(i * angleStep).
-      let target = -(index * angleStep);
-      // Normalize relative to current position for shortest spin
-      let diff = target - currentAngle;
-      while (diff > 180) diff -= 360;
-      while (diff < -180) diff += 360;
-      targetAngle = currentAngle + diff;
+    function focusOnSlide(index){
+      let target=-(index*angleStep);
+      let diff=target-currentAngle;
+      while(diff>180)diff-=360;
+      while(diff<-180)diff+=360;
+      targetAngle=currentAngle+diff;
     }
 
-    // Modal
-    function openModal(src) {
-      document.getElementById('modalImg').src = src;
+    function openModal(src){
+      document.getElementById('modalImg').src=src;
       document.getElementById('imageModal').classList.add('active');
     }
-    function closeModal() {
-      document.getElementById('imageModal').classList.remove('active');
-    }
+    function closeModal(){document.getElementById('imageModal').classList.remove('active')}
 
     // ===== WISHES =====
-    const wishes = [
+    const wishes=[
       {icon:'🌹',title:'Endless Love',text:'May your heart always be filled with the warmth of love that knows no bounds.'},
       {icon:'🌟',title:'Bright Future',text:'May every step you take this year shine brighter than the last. The world is yours.'},
       {icon:'🎀',title:'Beautiful Soul',text:'Never change who you are. Your kindness and grace make the world a better place.'},
@@ -400,165 +371,115 @@
       {icon:'💎',title:'Precious Gem',text:'You are rare, valuable, and treasured beyond words. Today and every day.'},
       {icon:'🌈',title:'Joyful Days',text:'May your year be painted in colors of laughter, peace, and unforgettable moments.'}
     ];
-    const wishGrid = document.getElementById('wishesGrid');
-    const colors = ['#ff006e','#fb5607','#ffbe0b','#8338ec','#3a86ff','#ff4081'];
-    wishes.forEach((w, i) => {
-      const card = document.createElement('div');
-      card.className = 'wish-card glow-card rounded-3xl p-8 text-center';
-      card.innerHTML = `
-        <div class="text-6xl mb-4">${w.icon}</div>
-        <h3 class="text-2xl font-bold mb-3" style="color:${colors[i]}">${w.title}</h3>
-        <p class="text-purple-900 leading-relaxed">${w.text}</p>
-      `;
+    const wishGrid=document.getElementById('wishesGrid');
+    const colors=['#ff006e','#fb5607','#ffbe0b','#8338ec','#3a86ff','#ff4081'];
+    wishes.forEach((w,i)=>{
+      const card=document.createElement('div');
+      card.className='wish-card glow-card rounded-2xl md:rounded-3xl p-6 md:p-8 text-center';
+      card.innerHTML=`
+        <div class="wish-icon text-5xl md:text-6xl mb-3">${w.icon}</div>
+        <h3 class="wish-title text-xl md:text-2xl font-bold mb-2" style="color:${colors[i]}">${w.title}</h3>
+        <p class="wish-text text-purple-900 leading-relaxed text-sm md:text-base">${w.text}</p>`;
       wishGrid.appendChild(card);
     });
 
     // ===== CAKE SPARKLES =====
-    const cakeWrap = document.getElementById('cakeGifWrap');
-    for (let i = 0; i < 10; i++) {
-      const sp = document.createElement('div');
-      sp.className = 'cake-sparkle';
-      sp.style.left = (5 + Math.random() * 90) + '%';
-      sp.style.top = (5 + Math.random() * 90) + '%';
-      sp.style.animationDelay = (Math.random() * 2.5) + 's';
-      sp.style.animationDuration = (2 + Math.random() * 1.5) + 's';
+    const cakeWrap=document.getElementById('cakeGifWrap');
+    for(let i=0;i<8;i++){
+      const sp=document.createElement('div');sp.className='cake-sparkle';
+      sp.style.left=(5+Math.random()*90)+'%';
+      sp.style.top=(5+Math.random()*90)+'%';
+      sp.style.animationDelay=(Math.random()*2.5)+'s';
+      sp.style.animationDuration=(2+Math.random()*1.5)+'s';
       cakeWrap.appendChild(sp);
     }
 
     // ===== CONFETTI =====
-    const confettiColors = ['#ff006e','#fb5607','#ffbe0b','#8338ec','#3a86ff','#ff85a2','#ffffff'];
-    function spawnConfetti() {
-      const c = document.createElement('div');
-      c.className = 'confetti';
-      c.style.left = Math.random()*100+'vw';
-      c.style.background = confettiColors[Math.floor(Math.random()*confettiColors.length)];
-      c.style.animationDuration = (Math.random()*3+3)+'s';
-      c.style.transform = `rotate(${Math.random()*360}deg)`;
-      if(Math.random()>.5) c.style.borderRadius='50%';
-      document.body.appendChild(c);
-      setTimeout(()=>c.remove(),7000);
+    const confettiColors=['#ff006e','#fb5607','#ffbe0b','#8338ec','#3a86ff','#ff85a2','#ffffff'];
+    function spawnConfetti(){
+      const c=document.createElement('div');c.className='confetti';
+      c.style.left=Math.random()*100+'vw';
+      c.style.background=confettiColors[Math.floor(Math.random()*confettiColors.length)];
+      c.style.animationDuration=(Math.random()*3+3)+'s';
+      c.style.transform=`rotate(${Math.random()*360}deg)`;
+      if(Math.random()>.5)c.style.borderRadius='50%';
+      document.body.appendChild(c);setTimeout(()=>c.remove(),7000);
     }
     setInterval(spawnConfetti,200);
 
     // ===== BALLOONS =====
-    const balloonColors = ['#ff006e','#ffbe0b','#8338ec','#3a86ff','#fb5607','#ff85a2'];
+    const balloonColors=['#ff006e','#ffbe0b','#8338ec','#3a86ff','#fb5607','#ff85a2'];
     function spawnBalloon(){
       const b=document.createElement('div');b.className='balloon';
       const color=balloonColors[Math.floor(Math.random()*balloonColors.length)];
       b.style.background=color;b.style.borderTopColor=color;
       b.style.left=Math.random()*100+'vw';
       b.style.animationDuration=(Math.random()*8+10)+'s';
-      document.getElementById('balloons').appendChild(b);
-      setTimeout(()=>b.remove(),20000);
+      document.getElementById('balloons').appendChild(b);setTimeout(()=>b.remove(),20000);
     }
-    for(let i=0;i<6;i++) setTimeout(spawnBalloon,i*1500);
+    for(let i=0;i<6;i++)setTimeout(spawnBalloon,i*1500);
     setInterval(spawnBalloon,3000);
 
     // ===== SPARKLES =====
-    const sparkleField = document.getElementById('sparkleField');
-    for(let i=0;i<30;i++){
+    const sparkleField=document.getElementById('sparkleField');
+    for(let i=0;i<25;i++){
       const s=document.createElement('div');s.className='sparkle';
       s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';
       s.style.animationDelay=Math.random()*2+'s';
       sparkleField.appendChild(s);
     }
 
-    // ===== MUSIC — force autoplay after 3s =====
-    const audio = document.getElementById('bgMusic');
-    const musicBtn = document.getElementById('musicBtn');
-    const musicIcon = document.getElementById('musicIcon');
-    const musicBanner = document.getElementById('musicBanner');
-    let musicPlaying = false;
+    // ===== MUSIC — muted-first autoplay =====
+    const audio=document.getElementById('bgMusic');
+    const musicBtn=document.getElementById('musicBtn');
+    const musicIcon=document.getElementById('musicIcon');
+    const musicBanner=document.getElementById('musicBanner');
+    let musicPlaying=false;
 
-    function startMusic() {
-      // Strategy: play muted first (browsers allow this), then unmute
-      audio.volume = 0;
-      audio.muted = true;
-      const p = audio.play();
-      if (p && p.then) {
-        p.then(() => {
-          // Successfully started — now unmute after a tiny delay
-          setTimeout(() => {
-            audio.muted = false;
-            audio.volume = 0.6;
-            musicPlaying = true;
-            musicIcon.textContent = '🎶';
-            musicBanner.classList.remove('show');
-          }, 200);
-        }).catch(() => {
-          // Even muted play failed — show banner as absolute last resort
-          audio.muted = false;
-          musicBanner.classList.add('show');
-          musicIcon.textContent = '▶️';
-        });
-      } else {
-        audio.muted = false;
-      }
+    function startMusic(){
+      audio.volume=0;audio.muted=true;
+      const p=audio.play();
+      if(p&&p.then){
+        p.then(()=>{
+          setTimeout(()=>{audio.muted=false;audio.volume=0.6;musicPlaying=true;musicIcon.textContent='🎶';musicBanner.classList.remove('show')},200);
+        }).catch(()=>{audio.muted=false;musicBanner.classList.add('show');musicIcon.textContent='▶️'});
+      }else{audio.muted=false}
     }
+    setTimeout(startMusic,3000);
 
-    setTimeout(startMusic, 3000);
-
-    // Banner fallback
-    musicBanner.addEventListener('click', () => {
-      audio.muted = false;
-      audio.volume = 0.6;
-      audio.play().then(() => {
-        musicPlaying = true;
-        musicIcon.textContent = '🎶';
-        musicBanner.classList.remove('show');
-      });
+    musicBanner.addEventListener('click',()=>{
+      audio.muted=false;audio.volume=0.6;
+      audio.play().then(()=>{musicPlaying=true;musicIcon.textContent='🎶';musicBanner.classList.remove('show')});
     });
 
-    // Toggle
-    musicBtn.addEventListener('click', () => {
-      if (musicPlaying) {
-        audio.pause();
-        musicPlaying = false;
-        musicIcon.textContent = '🔇';
-      } else {
-        audio.muted = false;
-        audio.volume = 0.6;
-        audio.play().then(() => {
-          musicPlaying = true;
-          musicIcon.textContent = '🎶';
-          musicBanner.classList.remove('show');
-        });
-      }
+    musicBtn.addEventListener('click',()=>{
+      if(musicPlaying){audio.pause();musicPlaying=false;musicIcon.textContent='🔇'}
+      else{audio.muted=false;audio.volume=0.6;audio.play().then(()=>{musicPlaying=true;musicIcon.textContent='🎶';musicBanner.classList.remove('show')})}
     });
 
     // ===== MAKE A WISH =====
-    const makeWishBtn = document.getElementById('makeWishBtn');
-    const wishPopup = document.getElementById('wishPopup');
-    const wishPopupOverlay = document.getElementById('wishPopupOverlay');
+    const makeWishBtn=document.getElementById('makeWishBtn');
+    const wishPopup=document.getElementById('wishPopup');
+    const wishPopupOverlay=document.getElementById('wishPopupOverlay');
 
-    makeWishBtn.addEventListener('click', (e) => {
+    makeWishBtn.addEventListener('click',(e)=>{
       e.preventDefault();
-      const end = Date.now() + 3000;
-      const cc = ['#ff006e','#ffbe0b','#8338ec','#3a86ff','#ffffff'];
+      const end=Date.now()+3000;const cc=['#ff006e','#ffbe0b','#8338ec','#3a86ff','#ffffff'];
       (function frame(){
         confetti({particleCount:5,angle:60,spread:55,origin:{x:0},colors:cc,zIndex:10000});
         confetti({particleCount:5,angle:120,spread:55,origin:{x:1},colors:cc,zIndex:10000});
-        if(Date.now()<end) requestAnimationFrame(frame);
+        if(Date.now()<end)requestAnimationFrame(frame);
       })();
       confetti({particleCount:100,spread:100,origin:{y:.6},colors:cc,zIndex:10000});
-      setTimeout(()=>{
-        wishPopup.classList.add('active');
-        wishPopupOverlay.classList.add('active');
-      },1000);
+      setTimeout(()=>{wishPopup.classList.add('active');wishPopupOverlay.classList.add('active')},1000);
     });
 
-    document.getElementById('closeWishPopup').addEventListener('click',()=>{
-      wishPopup.classList.remove('active');
-      wishPopupOverlay.classList.remove('active');
-    });
-    wishPopupOverlay.addEventListener('click',()=>{
-      wishPopup.classList.remove('active');
-      wishPopupOverlay.classList.remove('active');
-    });
+    document.getElementById('closeWishPopup').addEventListener('click',()=>{wishPopup.classList.remove('active');wishPopupOverlay.classList.remove('active')});
+    wishPopupOverlay.addEventListener('click',()=>{wishPopup.classList.remove('active');wishPopupOverlay.classList.remove('active')});
 
     // ===== CLICK HEARTS =====
     document.addEventListener('click',(e)=>{
-      if(e.target.closest('.music-btn')||e.target.closest('.music-banner')||e.target.closest('.wish-popup')||e.target.closest('#makeWishBtn')||e.target.closest('.thumb')) return;
+      if(e.target.closest('.music-btn')||e.target.closest('.music-banner')||e.target.closest('.wish-popup')||e.target.closest('#makeWishBtn')||e.target.closest('.thumb'))return;
       for(let i=0;i<5;i++){
         const h=document.createElement('div');h.className='heart';h.textContent='❤️';
         h.style.left=e.clientX+(Math.random()*40-20)+'px';
@@ -569,7 +490,6 @@
       }
     });
 
-    // ===== KEYBOARD =====
     document.addEventListener('keydown',e=>{
       if(e.key==='Escape'){closeModal();wishPopup.classList.remove('active');wishPopupOverlay.classList.remove('active')}
     });
